@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=GoldenDictionary
+GenericName=goldendictionary
+Comment=GoldenDict
+Keywords=dictionary,goldendict
+Exec=goldendictionary
+Icon=${SNAP}/meta/gui/icon.png
+Terminal=false
+StartupNotify=true

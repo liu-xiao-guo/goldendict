@@ -1,0 +1,57 @@
+name: goldendictionary
+version: '0.1' 
+summary: goldendict
+description: |
+  This is goldendict
+
+grade: stable
+confinement: strict
+
+apps:
+  goldendictionary:
+    command: desktop-launch $SNAP/usr/local/bin/goldendict
+    plugs:
+      - network
+      - unity7
+      - x11
+      - home
+      - opengl
+      - pulseaudio
+      - browser-support
+      - network-bind
+
+parts:
+  app:
+    plugin: qmake
+    source: https://github.com/goldendict/goldendict.git
+    qt-version: qt4
+    options:
+      - "CONFIG+=no_epwing_support"
+    stage-packages:
+      - overlay-scrollbar-gtk2
+      - libgail-3-0
+      - libatk-bridge2.0-0
+      - libatk-adaptor
+      - unity-gtk2-module:amd64
+      - libcanberra-gtk-module:amd64
+      - fonts-wqy-zenhei
+    build-packages:
+      - pkg-config
+      - git
+      - build-essential
+      - qt4-qmake
+      - libvorbis-dev
+      - zlib1g-dev
+      - libhunspell-dev
+      - x11proto-record-dev
+      - libqt4-dev
+      - libqtwebkit-dev
+      - libxtst-dev
+      - liblzo2-dev
+      - libbz2-dev
+      - libao-dev
+      - libavutil-dev
+      - libavformat-dev
+      - libtiff5-dev
+      - libeb16-dev
+    after: [desktop-qt4]
